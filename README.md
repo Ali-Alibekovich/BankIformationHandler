@@ -7,3 +7,6 @@ http://www.cbr.ru/banking_sector/credit/FullCoList/<br>
 Не нужно делать дубликатов или чистить всю таблицу и создавать новую.<br>
 
 Стек: Spring Boot, Spring Data Jpa, СУБД Postgres. <br>
+
+Все надстройки тут:
+[Тут](https://github.com/Ali-Alibekovich/BankIformationHandler/blob/main/src/main/resources/application.properties)
