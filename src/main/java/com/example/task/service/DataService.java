@@ -33,9 +33,9 @@ public class DataService {
         if (dataBaseOrganizationList.size() != 0) {
             xlsOrganizationList.removeAll(dataBaseOrganizationList);
         }
-        System.out.println("Добавлено "+xlsOrganizationList.size()+" элементов");
         if(xlsOrganizationList.size()!=0) {
             dataBaseCRUD.saveAll(xlsOrganizationList);
+            System.out.println("Добавлено "+xlsOrganizationList.size()+" элементов");
         }
     }
 
@@ -46,8 +46,8 @@ public class DataService {
             dataBaseOrganizationList.removeAll(xlsOrganizationList);
             if(dataBaseOrganizationList.size()>0) {
                 dataBaseCRUD.deleteAll(dataBaseOrganizationList);
+                System.out.println("Удалено "+dataBaseOrganizationList.size()+" элементов");
             }
-        System.out.println("Удалено "+dataBaseOrganizationList.size()+" элементов");
     }
 
     public List<OrganizationEntity> getList(){
