@@ -1,8 +1,8 @@
 package com.example.task.rest;
 
-import com.example.task.dao.OrganizationEntity;
-import com.example.task.service.DataService;
-import com.example.task.util.FileDownloader;
+import com.example.task.model.OrganizationDAO;
+import com.example.task.service.ServiceImpl.DataService;
+import com.example.task.utils.FileDownloader;
 import org.springframework.http.MediaType;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -20,8 +20,8 @@ import java.util.List;
 @EnableScheduling
 public class Controller {
 
-    final FileDownloader fileDownloader;
-    final DataService dataService;
+    final private FileDownloader fileDownloader;
+    final private DataService dataService;
 
     Controller(FileDownloader fileDownloader, DataService dataService) {
         this.fileDownloader = fileDownloader;
@@ -36,7 +36,7 @@ public class Controller {
     }
 
     @RequestMapping(value = "getEntities", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<OrganizationEntity> getEntities() {
+    public List<OrganizationDAO> getEntities() {
         return dataService.getList();
     }
 

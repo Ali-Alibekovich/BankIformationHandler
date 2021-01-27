@@ -1,4 +1,4 @@
-package com.example.task.util;
+package com.example.task.utils;
 
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
 import java.net.URL;
+import java.util.logging.Logger;
 
 
 @Component
@@ -13,9 +14,10 @@ public class FileDownloader {
 
     //Property value injection
     @Value("${file.path}")
-    String file;
+    private String file;
 
-    final CurrentUrlForDownload currentUrlForDownload;
+    final private Logger log = Logger.getAnonymousLogger();
+    final private CurrentUrlForDownload currentUrlForDownload;
 
     public FileDownloader(CurrentUrlForDownload currentUrlForDownload) {
         this.currentUrlForDownload = currentUrlForDownload;
@@ -37,6 +39,8 @@ public class FileDownloader {
     }
 
     public void downloadXlsFile() {
+        log.info(()->"Downloading xlsx file...");
         downloadUsingStream(currentUrlForDownload.url());
+        log.info(()->"File is successful downloaded.");
     }
 }
