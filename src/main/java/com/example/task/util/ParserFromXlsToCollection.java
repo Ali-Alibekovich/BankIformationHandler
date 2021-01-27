@@ -39,7 +39,7 @@ public class ParserFromXlsToCollection {
         }
     }
 
-    //Возращаем HSSFWorkBook для чтения из xls
+    //Возвращаем HSSFWorkBook для чтения из xls
     public XSSFWorkbook readWorkbook() {
         try {
             OPCPackage pkg = OPCPackage.open(new File(filename));
